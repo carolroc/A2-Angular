@@ -9,7 +9,9 @@ import { AnaTasksServiceService } from '../ana-tasks-service.service';
 export class AnaTasksComponentComponent implements OnInit {
   tarefa = '';
   tarefas = [];
-  constructor(public serviceTarefas: AnaTasksServiceService) {}
+  constructor(public serviceTarefas: AnaTasksServiceService) {
+    this.mostrarTarefas();
+  }
 
   ngOnInit() {}
 
