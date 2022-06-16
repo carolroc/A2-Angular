@@ -4,27 +4,28 @@ import { AnaTasksServiceService } from '../ana-tasks-service.service';
 @Component({
   selector: 'app-ana-tasks-component',
   templateUrl: './ana-tasks-component.component.html',
-  styleUrls: ['./ana-tasks-component.component.css']
+  styleUrls: ['./ana-tasks-component.component.css'],
 })
 export class AnaTasksComponentComponent implements OnInit {
   tarefa = '';
   tarefas = [];
-  constructor(public serviceTarefas: AnaTasksServiceService) { }
+  constructor(public serviceTarefas: AnaTasksServiceService) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  addTarefa(){
+  addTarefa() {
+    //alert(this.tarefa);
     this.serviceTarefas.addTarefa(this.tarefa);
+    this.mostrarTarefas();
   }
 
-  apagarTarefa(id:number){
+  apagarTarefa(id: number) {
     this.serviceTarefas.apagarTarefa(id);
   }
 
-  mostrarTarefas(){
+  mostrarTarefas() {
     this.tarefas = this.serviceTarefas.exibirTarefas();
+    //alert(this.tarefas);
     return this.tarefas;
   }
-
 }

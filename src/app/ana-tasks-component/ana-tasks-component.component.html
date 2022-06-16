@@ -1,16 +1,10 @@
 <h4>Tarefas</h4>
 <input type="text" [(ngModel)]="tarefa">
-<button>+</button>
+<button (click)="addTarefa()">+</button>
 
-<table>
-  <tr>
-    <th>Nome</th>
-    <th>Ação</th>
-  </tr>
-  <tr>
-    <td *ngFor="let i of tarefas;"></td>
-    <td><button>-</button></td>
-  </tr>
-</table>
+<div *ngFor="let i of tarefas; let id = index">
+  {{i}} 
+  <button (click)="apagarTarefa(id)">-</button>
+</div>
 
 <router-outlet></router-outlet>
